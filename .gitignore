@@ -32,3 +32,6 @@
 
 # linters
 node_modules/
+requirements.md
+
+screenshots/
