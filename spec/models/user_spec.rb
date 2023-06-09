@@ -22,32 +22,32 @@ RSpec.describe User, type: :model do
   end
 
   describe 'methods' do
-      let!(:user) do
-        User.create(
-          name: 'Tom',
-          photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-          bio: 'Teacher from Mexico.'
-        )
-      end
-    let!(:post_one) { user.posts.create(title: 'First Post', text: 'Hello World')}
+    let!(:user) do
+      User.create(
+        name: 'Tom',
+        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        bio: 'Teacher from Mexico.'
+      )
+    end
+    let!(:post_one) { user.posts.create(title: 'First Post', text: 'Hello World') }
     let!(:post_two) { user.posts.create(title: 'Second Post', text: 'Hello World') }
     let!(:post_three) { user.posts.create(title: 'Third Post', text: 'Hello World') }
     let!(:post_four) { user.posts.create(title: 'Fourth Post', text: 'Hello World') }
     let!(:posts) { [post_one, post_two, post_three, post_four] }
 
-    it 'returns recent posts' do 
+    it 'returns recent posts' do
       recent_posts = user.recent_posts
-  
+
       expect(recent_posts.length).to eq(3)
       expect(recent_posts).to all(be_a(Post))
     end
 
     it 'updates posts counter' do
       allow(user).to receive(:posts).and_return(posts)
-      expect {
+      expect do
         user.update_posts_counter
         user.reload
-      }.to change(user, :posts_counter).to(4)
+      end.to change(user, :posts_counter).to(4)
     end
   end
 end

@@ -48,22 +48,22 @@ RSpec.describe Post, type: :model do
         posts_counter: 1
       )
     end
-    let!(:post) { user.posts.create(title: 'First Post', text: 'Hello World')} 
+    let!(:post) { user.posts.create(title: 'First Post', text: 'Hello World') }
 
     it 'updates user posts counter after destroy' do
       post.save
-      expect {
+      expect do
         post.destroy
         user.reload
-      }.to change(user, :posts_counter).by(-1)
+      end.to change(user, :posts_counter).by(-1)
     end
 
     it 'returns recent comments' do
       comments = []
       5.times do |i|
-        comments << post.comments.create(post: post, author: user, text: "Comment #{i + 1}")
+        comments << post.comments.create(post:, author: user, text: "Comment #{i + 1}")
       end
-  
+
       recent_comments = post.recent_comments
       expect(recent_comments.length).to eq(5)
       expect(recent_comments).to all(be_a(Comment))
