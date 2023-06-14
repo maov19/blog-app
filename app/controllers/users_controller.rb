@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    # Placeholder for displaying all user names
+    @users = User.all
   end
 
   def show
