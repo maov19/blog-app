@@ -1,1 +1,22 @@
-<h1>Here is a list of posts for a specific user</h1>
+<div>
+    <%= image_tag @user.photo %>
+    <p><%= @user.name %></p>
+    <p> Number of posts: <%= @user.posts_counter %></p>
+    <p><%= @user.bio %></p>
+    <% @user.recent_posts.each do |post| %>
+        <div>
+            <p>Post #<%= post.id %></p>
+            <p><%= link_to post.text, user_posts_path(@user) %></p>
+            <p>Comments: <%= post.comments_counter %></p>
+            <p>Likes: <%= post.likes_counter %></p>
+        </div>
+    <% end %>
+</div>
+
+<button>
+  <%= link_to 'See All Posts', user_posts_path(@user) %>
+</button>
+
+<button>  
+    <%= link_to 'Back to all users', root_path %>
+</button>

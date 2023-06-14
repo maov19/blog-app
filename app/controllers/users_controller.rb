@@ -4,14 +4,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    # Placeholder for displaying user, bio, posts, comment counter, and likes counter
+    @user = User.find(params[:id])
+
   end
 
   def posts
-    # Placeholder for displaying user, posts, comments, comment counter, and likes counter
+    @user = User.find(params[:id])
+
   end
 
   def show_post
-    # Placeholder for displaying post, comments, comment counter, and likes counter
+    @user = User.find(params[:id])
+
   end
 end
