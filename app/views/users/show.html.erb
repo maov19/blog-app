@@ -1,22 +1,35 @@
-<div>
-    <%= image_tag @user.photo %>
-    <p><%= @user.name %></p>
-    <p> Number of posts: <%= @user.posts_counter %></p>
-    <p><%= @user.bio %></p>
-    <% @user.recent_posts.each do |post| %>
-        <div>
+<div class="container">
+    <div class="user-info-container">
+        <p class="user-photo">
+            <%= image_tag @user.photo %>
+        </p>
+        <div class="user-info">
+            <p class='user-name'><%= @user.name %></p>
+            <p class='posts-counter'> Number of posts: <%= @user.posts_counter %></p>
+        </div>
+    </div>
+    <div class="user-bio"> 
+        <p>Bio</p> 
+        <%= @user.bio %>
+    </div>
+        <% @user.recent_posts.each do |post| %>
+        <div class="post-info">
             <p>Post #<%= post.id %></p>
             <p><%= link_to post.text, user_posts_path(@user) %></p>
-            <p>Comments: <%= post.comments_counter %></p>
-            <p>Likes: <%= post.likes_counter %></p>
-        </div>
+            <div class="likes-comments">
+                <p>Comments: <%= post.comments_counter %></p>
+                <p>Likes: <%= post.likes_counter %></p>
+            </div>
+    </div>
     <% end %>
+        <div class="buttons">
+            <button class="see-all-posts">
+                <%= link_to 'See All Posts', user_posts_path(@user) %>
+            </button>
+
+            <button class="back-all-users">  
+                <%= link_to 'Back to all users', root_path %>
+            </button>
+        </div>
 </div>
 
-<button>
-  <%= link_to 'See All Posts', user_posts_path(@user) %>
-</button>
-
-<button>  
-    <%= link_to 'Back to all users', root_path %>
-</button>
