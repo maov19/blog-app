@@ -1,1 +1,24 @@
-<h1>Here is a list of all posts and comments for a specific user!</h1>
+<div>
+  <% @posts.each do |post| %>
+    <div>
+      <%= image_tag post.author.photo %>
+      <p><%= link_to post.author.name, user_path(post.author) %></p>
+      <p>Number of posts: <%= post.author.posts_counter %></p>
+      <p>Post #<%= post.id %></p>
+      <p><%= link_to post.text.truncate(100), user_post_path(post.author, post) %></p>
+      <p>Comments: <%= post.comments_counter %></p>
+      <p>Likes: <%= post.likes_counter %></p>
+      <% post.comments.each do |comment| %>
+        <div>
+          <p>User: <%= comment.author.name %></p>
+          <p>Comment: <%= comment.text %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<button>
+  <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
+</button>
+
