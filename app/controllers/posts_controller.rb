@@ -4,8 +4,8 @@ class PostsController < ApplicationController
     @posts = @user.recent_posts
   end
 
-  def show_post
-    @user = User.find(params[:user_id])
+  def show
     @post = Post.find(params[:id])
+    @user = @post.author
   end
 end

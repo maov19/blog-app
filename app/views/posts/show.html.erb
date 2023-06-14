@@ -1,1 +1,17 @@
-<h1>Here is a list of comments for a specific post!</h1>
+<div>
+  <p>User: <%= link_to @post.author.name, user_path(@post.author) %></p>
+  <p>Post: <%= @post.text %></p>
+  <p>Comments: <%= @post.comments_counter %></p>
+  <p>Likes: <%= @post.likes_counter %></p>
+</div>
+
+<% @post.comments.each do |comment| %>
+  <div>
+    <p>User: <%= link_to comment.author.name, user_path(comment.author) %></p>
+    <p>Comment: <%= comment.text %></p>
+  </div>
+<% end %>
+
+<button>
+  <%= link_to 'Back to Posts', user_posts_path(@user) %>
+</button>
