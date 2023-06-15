@@ -1,7 +1,7 @@
 .comments-section.with-border {
     width: 84vw;
-    margin: 1.5rem 0 2rem -0.5rem;
-    border: solid black 1px;
+    margin: 1.5rem 0 2rem -0.6rem;
+    border: solid black 2px;
     padding: 0.5rem;
 }
 
@@ -9,7 +9,7 @@
 .button-container {
     position: absolute;
     left: 50%;
-    bottom: 1rem; /* Adjust the value as needed */
+    bottom: 1rem; 
     transform: translateX(-50%);
 }
   

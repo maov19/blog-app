@@ -1,17 +1,24 @@
-<div>
-  <p>User: <%= link_to @post.author.name, user_path(@post.author) %></p>
-  <p>Post: <%= @post.text %></p>
-  <p>Comments: <%= @post.comments_counter %></p>
-  <p>Likes: <%= @post.likes_counter %></p>
-</div>
-
-<% @post.comments.each do |comment| %>
-  <div>
-    <p>User: <%= link_to comment.author.name, user_path(comment.author) %></p>
-    <p>Comment: <%= comment.text %></p>
+<div class="container">
+  <div class="post-info">
+    <div class="post-header">
+      <p>Post #<%= @post.id%> by <%= link_to @post.author.name, user_path(@post.author) %></p>
+      <div class="likes-comments">
+        <p>Comments: <%= @post.comments_counter %></p>
+        <p>Likes: <%= @post.likes_counter %></p>
+      </div>
+    </div>
+    <p class="post-text"><%= @post.text %></p>
   </div>
-<% end %>
-
-<button>
-  <%= link_to 'Back to Posts', user_posts_path(@user) %>
-</button>
+    <div class="comment-section<%= ' with-border' if @post.comments_counter > 0 %>">
+    <% @post.comments.each do |comment| %>
+      <div>
+        <p><%= link_to comment.author.name, user_path(comment.author)%>: <%= comment.text %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="button-container">
+    <button>
+      <%= link_to 'Back to Posts', user_posts_path(@user) %>
+    </button>
+  </div>
+</div>
