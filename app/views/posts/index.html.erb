@@ -1,24 +1,35 @@
-<div>
+<div class="container">
+  <div class='user-info-container'>
+    <p class="user-photo">
+      <%= image_tag @user.photo %>
+    </p>  
+    <div class='user-info'>  
+      <p class="user-name"><%= link_to @user.name, user_path(@user) %></p>
+      <p class="posts-counter">Number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
   <% @posts.each do |post| %>
-    <div>
-      <%= image_tag post.author.photo %>
-      <p><%= link_to post.author.name, user_path(post.author) %></p>
-      <p>Number of posts: <%= post.author.posts_counter %></p>
+    <div class="post-info">
       <p>Post #<%= post.id %></p>
       <p><%= link_to post.text.truncate(100), user_post_path(post.author, post) %></p>
-      <p>Comments: <%= post.comments_counter %></p>
-      <p>Likes: <%= post.likes_counter %></p>
-      <% post.comments.each do |comment| %>
-        <div>
-          <p>User: <%= comment.author.name %></p>
-          <p>Comment: <%= comment.text %></p>
-        </div>
-      <% end %>
+      <div class="likes-comments">
+        <p>Comments: <%= post.comments_counter %></p>
+        <p>Likes: <%= post.likes_counter %></p>
+      </div>
+      <div class="comments-section<%= ' with-border' if post.comments_counter > 0 %>">
+        <% post.comments.each do |comment| %>
+          <div>
+            <p><%= comment.author.name %>: <%= comment.text %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
+  <div class="button-container">
+    <button>
+      <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
+    </button>
+  </div>
 </div>
 
-<button>
-  <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
-</button>
 

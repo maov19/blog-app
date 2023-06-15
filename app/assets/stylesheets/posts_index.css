@@ -1,0 +1,15 @@
+.comments-section.with-border {
+    width: 84vw;
+    margin: 1.5rem 0 2rem -0.5rem;
+    border: solid black 1px;
+    padding: 0.5rem;
+}
+
+
+.button-container {
+    position: absolute;
+    left: 50%;
+    bottom: 1rem; /* Adjust the value as needed */
+    transform: translateX(-50%);
+}
+  
