@@ -1,17 +1,19 @@
-<ul>
-  <% @users.each do |user| %>
-    <li class="user-list-item">
-      <div class="user-photo">
-        <%= image_tag user.photo %>
-      </div>
-      <div class="user-info">
-        <p class="user-name">
-          <%= link_to user.name, user_path(user) %>
-        </p>
-        <p class="user-posts-counter">
-          Posts: <%= link_to user.posts_counter, user_posts_path(user) %>
-        </p>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <ul>
+    <% @users.each do |user| %>
+      <li class="user-list-item">
+        <div class="user-photo">
+          <%= image_tag user.photo %>
+        </div>
+        <div class="user-info">
+          <p class="user-name">
+            <%= link_to user.name, user_path(user) %>
+          </p>
+          <p class="user-posts-counter">
+            Posts: <%= link_to user.posts_counter, user_posts_path(user) %>
+          </p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

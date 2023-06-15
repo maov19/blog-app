@@ -1,3 +1,8 @@
+body{
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
 .user-list-item {
     display: flex;
     align-items: center;
@@ -5,7 +10,7 @@
   }
   
   .user-photo {
-    width: 13vw;
+    width: 13vh;
     height: 13vh;
     border: 1px solid black;
     margin-right: 2rem;
