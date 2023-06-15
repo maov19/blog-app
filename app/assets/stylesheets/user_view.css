@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  border: solid black 2px;
+  display: flex;
+  height: 12vh;
+  width: 77vw;
+}
+
+.user-photo {
+  border: solid black 2px;
+  height: 13vh;
+}
+
+.user-name {
+  font-size: 2rem;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.posts-counter {
+  align-self: flex-end;
+  margin-right: 1rem;
+}
+
+.user-bio {
+  margin: 0 0 1.5rem 0;
+  padding: 1rem;
+  width: 83vw;
+  border: black solid 2px;
+}
+
+.user-bio p {
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+  height: 11vh;
+  width: 84vw;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  justify-content: space-between;
+  border: black solid 2px;
+}
+
+.post-info p {
+  margin: 0;
+  padding: 0;
+}
+
+.likes-comments {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  width: 10rem;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+button {
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  border: solid black 1.5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Add box shadow */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

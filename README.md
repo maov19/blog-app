@@ -54,7 +54,19 @@ This repository includes ruby code that can be use to decode the morse code.
 - To use this repo to your local computer make sure you have installed [Ruby](https://www.ruby-lang.org/)
 - To install necessary require packages open your favorite cd to this project then try the below command
 ```
-gem install
+bundle install
+```
+
+- To create the database (necessary for the app to run)
+```
+rails db:create db:migrate
+```
+Obs: check the config\database.yml file to check the appropiate user and password is provided
+
+
+- To run the app on your local browser
+```
+rails server
 ```
 
 - To run this project tests on your local machine you have to install `Rspec` using this command `gem install rspec` then enter the below command on your terminal
