@@ -1,44 +1,43 @@
-body{
+body {
   font-family: 'Courier New', Courier, monospace;
-
 }
 
 .user-list-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-  
-  .user-photo {
-    width: 13vh;
-    height: 13vh;
-    border: 1px solid black;
-    margin-right: 2rem;
-  }
-  
-  .user-info {
-    width: 70vw;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    border: solid black 1px;
-    align-items: center;
-    text-decoration: none;
-  }
-  
-  .user-name {
-    font-size: 2rem;
-    margin-left: 1rem;
-    text-decoration: none;
-  }
-  
-  .user-posts-counter {
-    align-self: flex-end;
-    margin-right: 1rem;
-  }
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
 
-  .user-name a, .user-posts-counter a{
-    text-decoration: none;
-    color: inherit;
-    }
-  
+.user-photo {
+  width: 13vh;
+  height: 13vh;
+  border: 1px solid black;
+  margin-right: 2rem;
+}
+
+.user-info {
+  width: 70vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  border: solid black 1px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.user-name {
+  font-size: 2rem;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.user-posts-counter {
+  align-self: flex-end;
+  margin-right: 1rem;
+}
+
+.user-name a,
+.user-posts-counter a {
+  text-decoration: none;
+  color: inherit;
+}
