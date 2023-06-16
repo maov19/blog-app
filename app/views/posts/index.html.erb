@@ -11,7 +11,7 @@
   <% @posts.each do |post| %>
     <div class="post-info">
       <p>Post #<%= post.id %></p>
-      <p><%= link_to post.text.truncate(100), user_post_path(post.author, post) %></p>
+      <p><%= link_to post.text.truncate(100), user_post_path(post.author, post.id) %></p>
       <div class="likes-comments">
         <p>Comments: <%= post.comments_counter %></p>
         <p>Likes: <%= post.likes_counter %></p>
