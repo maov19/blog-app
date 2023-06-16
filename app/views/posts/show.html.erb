@@ -20,6 +20,9 @@
     <button>
       <%= link_to 'Back to Posts', user_posts_path(@user) %>
     </button>
+    <button>
     <%= link_to 'Add Comment', new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: 'add-comment-button' %>
+    </button>
+    <%= button_to 'Like', user_post_likes_path(user_id: @post.author.id, post_id: @post.id), method: :post, class: 'like-button' %>
   </div>
 </div>
