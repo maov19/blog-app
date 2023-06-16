@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.author = current_user
     if @comment.save
-      redirect_to user_posts_path(@post.author, @post), notice: 'Comment created successfully'
+      redirect_to user_post_path(@post.author, @post), notice: 'Comment created successfully'
     else
       render :new
     end

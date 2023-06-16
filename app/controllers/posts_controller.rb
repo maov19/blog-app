@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     puts "Current User ID: #{current_user.id}"
     puts "New Post Author ID: #{@post.author_id}"
     if @post.save
-      redirect_to user_path(current_user), notice: 'Post created successfully'
+      redirect_to user_post_path(current_user, @post), notice: 'Post created successfully'
     else
       puts @post.errors.full_messages # Debugging output to check validation errors
       redirect_to user_path(current_user), notice: 'Post not created'
