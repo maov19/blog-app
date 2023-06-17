@@ -20,7 +20,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to user_post_path(current_user, @post), notice: 'Post created successfully'
     else
-      puts @post.errors.full_messages # Debugging output to check validation errors
       redirect_to user_path(current_user), notice: 'Post not created'
     end
   end
