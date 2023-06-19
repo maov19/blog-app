@@ -8,7 +8,7 @@
       <p class="posts-counter">Number of posts: <%= @user.posts_counter %></p>
     </div>
   </div>
-  <% @posts.each do |post| %>
+  <% @posts.includes(:comments, :author).each do |post| %>
     <div class="post-info">
       <p>Post #<%= post.id %></p>
       <p><%= link_to post.text.truncate(100), user_post_path(post.author, post.id) %></p>
