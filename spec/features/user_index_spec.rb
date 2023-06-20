@@ -5,14 +5,12 @@ RSpec.describe 'User Index Page', type: :feature do
     @user1 = User.create(name: 'John Doe')
     @user2 = User.create(name: 'Jane Smith')
 
-    #update profile pictures
+    # update profile pictures
     @user1.update(photo: 'https://unsplash.com/photos/F_-0BxGuVvo')
     @user2.update(photo: 'https://unsplash.com/es/fotos/mEZ3PoFGs_k')
 
     # Update posts_counter for user1
     @user1.update(posts_counter: 5)
-
-    # Update posts_counter for user2
     @user2.update(posts_counter: 10)
   end
 
@@ -44,6 +42,6 @@ RSpec.describe 'User Index Page', type: :feature do
 
     expect(current_path).to eq(user_path(@user1))
     expect(page).to have_content(@user1.name)
-    expect(page).to have_content('Posts: 5')
+    expect(page).to have_content('posts: 5')
   end
 end
