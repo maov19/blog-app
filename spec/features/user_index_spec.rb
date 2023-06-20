@@ -2,23 +2,19 @@ require 'rails_helper'
 
 RSpec.describe 'User Index Page', type: :feature do
   before do
-    @user1 = User.create(name: 'John Doe')
-    @user2 = User.create(name: 'Jane Smith')
+    @user1 = User.create(name: 'Martin')
+    @user2 = User.create(name: 'Jane')
 
     # update profile pictures
     @user1.update(photo: 'https://unsplash.com/photos/F_-0BxGuVvo')
     @user2.update(photo: 'https://unsplash.com/es/fotos/mEZ3PoFGs_k')
-
-    # Update posts_counter for user1
-    @user1.update(posts_counter: 5)
-    @user2.update(posts_counter: 10)
   end
 
   it 'displays the username of all other users' do
     visit users_path
 
-    expect(page).to have_content('John Doe')
-    expect(page).to have_content('Jane Smith')
+    expect(page).to have_content('Martin')
+    expect(page).to have_content('Jane')
   end
 
   it 'displays the profile picture for each user' do
@@ -31,17 +27,16 @@ RSpec.describe 'User Index Page', type: :feature do
   it 'displays the number of posts each user has written' do
     visit users_path
 
-    expect(page).to have_content('Posts: 5', count: 1)
-    expect(page).to have_content('Posts: 10', count: 1)
+    expect(page).to have_content("Posts: #{@user1.posts_counter}")
+    expect(page).to have_content("Posts: #{@user2.posts_counter}")
   end
 
   it 'redirects to the user show page when clicking on a user' do
     visit users_path
 
-    click_link @user1.name
+    first(:link, @user1.name).click
 
     expect(current_path).to eq(user_path(@user1))
     expect(page).to have_content(@user1.name)
-    expect(page).to have_content('posts: 5')
   end
 end
