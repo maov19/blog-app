@@ -20,5 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:new, :create]
+  resources :posts, only: [:new, :create, :destroy] # Move the delete route here
+
+  delete '/users/:user_id/posts/:id', to: 'posts#destroy', as: 'destroy_user_post' # Use a different name for the delete route
+
 end
