@@ -1,8 +1,14 @@
 <div class="container">
     <div class="user-info-container">
-        <p class="user-photo">
-            <%= image_tag @user.photo %>
-        </p>
+        <% if @user.photo.present? %>
+            <div class="user-photo">
+                <%= image_tag @user.photo %>
+            </div>
+        <% else %>
+            <div class="default-user-photo">
+                <p> No photo available!</p>
+            </div>
+        <% end %>
         <div class="user-info">
             <p class='user-name'><%= @user.name %></p>
             <p class='posts-counter'> Number of posts: <%= @user.posts_counter %></p>
