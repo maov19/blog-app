@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to user_posts_path(@post.author), notice: 'Post deleted successfully'
+    redirect_to user_path(@post.author), notice: 'Post deleted successfully'
   end
 
   private
