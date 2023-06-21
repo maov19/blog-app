@@ -8,11 +8,9 @@ body {
   margin-bottom: 2rem;
 }
 
-.user-photo {
+.user-photo img {
   width: 13vh;
   height: 13vh;
-  border: 1px solid black;
-  margin-right: 2rem;
 }
 
 .user-info {
