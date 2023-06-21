@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = @current_user.posts.build(post_params)
     puts "Current User ID: #{current_user.id}"
     puts "New Post Author ID: #{@post.author_id}"
     if @post.save

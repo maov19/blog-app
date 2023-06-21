@@ -4,9 +4,9 @@ RSpec.describe 'Post Index Page', type: :feature do
   describe 'Viewing Post Index page' do
     before(:each) do
       @user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos', bio: 'Teacher from Mexico.',
-        posts_counter: 0)
+                           posts_counter: 0)
       @first_post = Post.create(author: @user1, title: 'post1', text: 'This is my first post', likes_counter: 0,
-        comments_counter: 0)
+                                comments_counter: 0)
       @comment1 = Comment.create(post: @first_post, author: @user1, text: 'Hi Tom!, Nice comment')
       visit user_posts_path(@user1) # Use the named route 'user_posts_path' to visit the posts index page for the user
     end
@@ -44,8 +44,8 @@ RSpec.describe 'Post Index Page', type: :feature do
     end
 
     it 'should navigate to post show page when clicked on post' do
-        find('a', text: @first_post.text).click
-        expect(current_path).to eq(user_post_path(@first_post.author_id, @first_post))
-      end
+      find('a', text: @first_post.text).click
+      expect(current_path).to eq(user_post_path(@first_post.author_id, @first_post))
     end
+  end
 end

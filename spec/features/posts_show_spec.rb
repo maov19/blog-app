@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'User Index Page', type: :feature do
   before do
     @user1 = User.create(name: 'Sam', photo: 'https://icons.iconarchive.com/icons/iconsmind/outline/256/User-icon.png',
-        bio: 'Teacher from Poland.', posts_counter: 0)
+                         bio: 'Teacher from Poland.', posts_counter: 0)
     visit users_path
   end
 
