@@ -1,8 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   skip_before_action :require_no_authentication, only: %i[new create]
 
-
-
   def create
     self.resource = warden.authenticate!(auth_options)
     sign_in(resource_name, resource)
