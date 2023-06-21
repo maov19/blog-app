@@ -1,0 +1,21 @@
+.field {
+  margin-bottom: 1rem;
+}
+
+.wide {
+  width: 40vw;
+  height: 4vh;
+}
+
+.wide-button {
+  width: 38vw;
+  height: 3vh;
+  border: none;
+}
+
+.links {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
