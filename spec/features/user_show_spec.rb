@@ -24,13 +24,13 @@ RSpec.feature 'User Show Page', type: :feature do
     expect(page).to have_content(user1.bio)
   end
 
-  scenario 'displays only 3 first posts' do
+  scenario 'displays only 3 first posts (of 4 existing)' do
     expect(page).to have_content('Sed do eiusmod tempor incididunt')
     expect(page).to have_content('Ut labore et dolore magna aliqua')
     expect(page).to have_content('Ut enim ad minim veniam')
   end
 
-  scenario 'displays working buttons and links' do
+  scenario 'displays buttons and links, and they are functional' do
     expect(page).to have_button(class: 'see-all-posts')
     find('.see-all-posts a').click
     expect(page).to have_current_path(user_posts_path(user1))

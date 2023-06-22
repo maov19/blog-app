@@ -47,5 +47,9 @@ RSpec.describe 'Post Index Page', type: :feature do
       find('a', text: @first_post.text).click
       expect(current_path).to eq(user_post_path(@first_post.author_id, @first_post))
     end
+
+    it 'should have a pagination button' do
+      expect(page).to have_content('Pagination')
+    end
   end
 end
