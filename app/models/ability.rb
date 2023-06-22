@@ -3,9 +3,13 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    can :destroy, Post, author_id: user.id
-    can :destroy, Comment, author_id: user.id
-    can :destroy, Post, author_id: user.id if user.admin?
-    can :destroy, Comment, author_id: user.id if user.admin?
+
+    if user.admin?
+      can :manage, :all
+    else
+      can :manage, Post, author: user
+      can :manage, Comment, author: user
+      can :read, :all
+    end
   end
 end
