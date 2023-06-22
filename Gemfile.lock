@@ -272,7 +272,6 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
   bootsnap
   cancancan
   capybara
