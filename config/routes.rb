@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'comments/index'
+  end
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -27,7 +30,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:index] do
-      resources :posts, only: [:index]
+      resources :posts, only: [:index] do
+       resources :comments, only: [:index]
+        end
       end
    end
 end
