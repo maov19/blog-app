@@ -9,8 +9,13 @@ RSpec.feature 'User Index Page', type: :feature do
 
   scenario 'I can see the username, profile picture, and number of posts for each user' do
     expect(page).to have_content(@user1.name)
+    expect(page).to have_content(@post.title)
+    expect(page).to have_content(@post.text)
     expect(page.html).to include(@user1.photo)
-    expect(page).to have_content(@user1.posts_counter)
+    expect(page).to have_content(@user1.post_counter)
+    expect(page).to have_content(@post.likes_counter)
+    expect(page).to have_content(@post.comments_counter)
+    expect(page).to have_content(@user1.name, count: 2) # Ensure commenters' username is displayed
   end
 
   scenario 'When I click on a user, I am redirected to their show page' do
