@@ -1,29 +1,31 @@
-class Api::CommentsController < ApplicationController
-  before_action :authenticate_api_request, only: [:create]
+class CommentsController < ApplicationController
+  load_and_authorize_resource
 
-  def index
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:post_id])
-    @comments = @post.comments
-    render json: @comments
+  def new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build
   end
 
   def create
-    @user = @current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-    @comment.author = @user
-
+    @comment.author = current_user
     if @comment.save
-      render json: @comment, status: :created
+      redirect_to user_post_path(@post.author, @post), notice: 'Comment created successfully'
     else
-      render json: { error: @comment.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      render :new
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:comment_id])
+    @comment.destroy
+    redirect_to user_post_path(@comment.author), notice: 'Comment was deleted succesfully'
   end
 
   private
 
   def comment_params
-    params.permit(:text)
+    params.require(:comment).permit(:text)
   end
 end
