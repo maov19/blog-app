@@ -18,7 +18,6 @@ RSpec.describe 'Post Index Page', type: :feature do
       @sixth_post = Post.create(author: @user1, title: 'post1', text: 'This is my sixth post', likes_counter: 0,
                                 comments_counter: 1)
 
-
       @comment1 = Comment.create(post: @first_post, author: @user1, text: 'Hi Tom!, Nice comment')
       visit user_posts_path(@user1)
     end
@@ -59,7 +58,6 @@ RSpec.describe 'Post Index Page', type: :feature do
       find('a', text: @first_post.text).click
       expect(current_path).to eq(user_post_path(@first_post.author_id, @first_post))
     end
-
 
     it 'should show a button for pagination if there are more posts than fit on the view.' do
       visit user_posts_path(@user1.id)
