@@ -79,6 +79,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'devise'
 
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
 
 gem 'cancancan'
