@@ -47,5 +47,10 @@ RSpec.describe 'Post Index Page', type: :feature do
       find('a', text: @first_post.text).click
       expect(current_path).to eq(user_post_path(@first_post.author_id, @first_post))
     end
+
+    it 'should show a button for pagination if there are more posts than fit on the view.' do
+      visit user_posts_path(@user1.id)
+      expect(page).to have_button('Pagination')
+    end
   end
 end
