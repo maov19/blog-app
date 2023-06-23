@@ -6,4 +6,3 @@ class Api::PostsController < ApplicationController
     render json: posts, status: :ok
   end
 end
-  

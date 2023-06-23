@@ -4,7 +4,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
@@ -14,9 +13,11 @@ class User < ApplicationRecord
   def recent_posts(limit = 3)
     posts.order(created_at: :desc).limit(limit)
   end
+
   def update_posts_counter
     update(posts_counter: posts.count)
   end
+
   def admin?
     role == 'admin'
   end
