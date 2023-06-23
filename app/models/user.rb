@@ -1,3 +1,4 @@
+##commit fix auth_token view
 class User < ApplicationRecord
   # has_secure_password
   # Include default devise modules. Others available are:
@@ -21,5 +22,9 @@ class User < ApplicationRecord
 
   def admin?
     role == 'admin'
+  end
+
+  User.all.each do |user|
+    puts "User ID: #{user.id}, Auth Token: #{user.attributes['auth_token']}"
   end
 end

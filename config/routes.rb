@@ -1,3 +1,5 @@
+##commit fix like routing
+
 Rails.application.routes.draw do
   namespace :api do
     get 'comments/index'
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:index] do
       resources :posts, only: [:index] do
-       resources :comments, only: [:index]
+       resources :comments, only: [:index, :create]
         end
       end
    end
