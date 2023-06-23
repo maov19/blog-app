@@ -80,10 +80,15 @@ rspec spec
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Martin Ossa**
-
 - GitHub: [@maov19](https://github.com/maov19)
 - Twitter: [@maov08](https://twitter.com/maov08)
 - LinkedIn: [Martin Ossa](https://linkedin.com/in/martin-ossa)
+
+
+👤 **Winnie Edube**
+- GitHub: [@edubew](https://github.com/edubew)
+- Twitter: [@edube_winne](https://twitter.com/edube_winne)
+- LinkedIn: [Winfred Edube](https://www.linkedin.com/in/winfred-edube/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
