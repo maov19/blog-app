@@ -50,6 +50,10 @@ RSpec.describe 'Post Index Page', type: :feature do
 
     it 'should have a pagination button' do
       expect(page).to have_content('Pagination')
+      
+    it 'should show a button for pagination if there are more posts than fit on the view.' do
+      visit user_posts_path(@user1.id)
+      expect(page).to have_button('Pagination')
     end
   end
 end
