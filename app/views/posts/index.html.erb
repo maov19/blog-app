@@ -25,11 +25,13 @@
       <% end %>
     </div>
   <% end %>
-  <div class="button-container">
-    <button>
-      <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
-    </button>
-  </div>
+  <% if @user.posts_counter >= 5 %>
+    <div class="button-container">
+      <button>
+        <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
+      </button>
+    </div>
+<% end %>
 </div>
 
 

@@ -4,11 +4,23 @@ RSpec.describe 'Post Index Page', type: :feature do
   describe 'Viewing Post Index page' do
     before(:each) do
       @user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos', bio: 'Teacher from Mexico.',
-                           posts_counter: 0)
+                           posts_counter: 6)
       @first_post = Post.create(author: @user1, title: 'post1', text: 'This is my first post', likes_counter: 0,
-                                comments_counter: 0)
+                                comments_counter: 1)
+      @second_post = Post.create(author: @user1, title: 'post1', text: 'This is my second post', likes_counter: 0,
+                                 comments_counter: 1)
+      @third_post = Post.create(author: @user1, title: 'post1', text: 'This is my third post', likes_counter: 0,
+                                comments_counter: 1)
+      @fourth_post = Post.create(author: @user1, title: 'post1', text: 'This is my fourth post', likes_counter: 0,
+                                 comments_counter: 1)
+      @fifth_post = Post.create(author: @user1, title: 'post1', text: 'This is my fifth post', likes_counter: 0,
+                                comments_counter: 1)
+      @sixth_post = Post.create(author: @user1, title: 'post1', text: 'This is my sixth post', likes_counter: 0,
+                                comments_counter: 1)
+
+
       @comment1 = Comment.create(post: @first_post, author: @user1, text: 'Hi Tom!, Nice comment')
-      visit user_posts_path(@user1) # Use the named route 'user_posts_path' to visit the posts index page for the user
+      visit user_posts_path(@user1)
     end
 
     it 'should show user name' do
@@ -48,9 +60,7 @@ RSpec.describe 'Post Index Page', type: :feature do
       expect(current_path).to eq(user_post_path(@first_post.author_id, @first_post))
     end
 
-    it 'should have a pagination button' do
-      expect(page).to have_content('Pagination')
-      
+
     it 'should show a button for pagination if there are more posts than fit on the view.' do
       visit user_posts_path(@user1.id)
       expect(page).to have_button('Pagination')
