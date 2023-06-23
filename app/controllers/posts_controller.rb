@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     # @user = User.includes(posts: [:author, comments: :author]).find(params[:user_id])
     @user = User.find(params[:user_id])
@@ -24,6 +26,12 @@ class PostsController < ApplicationController
       puts @post.errors.full_messages # Debugging output to check validation errors
       redirect_to user_path(current_user), notice: 'Post not created'
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_path(@post.author), notice: 'Post deleted successfully'
   end
 
   private

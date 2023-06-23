@@ -36,6 +36,24 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  # Set up email delivery method
+  config.action_mailer.delivery_method = :smtp
+
+  # Configure SMTP settings for your email provider
+  config.action_mailer.smtp_settings = {
+    address: "smtp.office365.com", # 
+    port: 587, # 
+    domain: "outlook.com", # 
+    user_name: "ruby_testing_2106", # 
+    password: "RubyRubyRubyRuby", # 
+    authentication: :STARTTLS, # 
+    enable_starttls_auto: true # Enable STARTTLS
+  }
+
+  # Set the default URL options for the Devise mailer
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
