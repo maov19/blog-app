@@ -8,18 +8,19 @@
 .user-info-container {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .user-info {
   border: solid black 2px;
   display: flex;
-  height: 12vh;
-  width: 77vw;
+  width: 79vw;
 }
 
 .user-photo {
   border: solid black 2px;
   height: 13vh;
+  margin-right: 0.5rem;
 }
 
 .user-name {
